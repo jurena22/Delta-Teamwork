@@ -12,6 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TypeDeleteComponent } from './shared/components/type-delete/type-delete.component';
 import { FlashTextComponent } from './shared/components/flash-text/flash-text.component';
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
+import { AboutComponent } from './core/components/about/about.component';
+import { ApplicationComponent } from './core/components/application/application.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { NotFoundPageComponent } from './core/components/not-found-page/not-foun
     TrainingsComponent,
     TypeDeleteComponent,
     FlashTextComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    AboutComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,

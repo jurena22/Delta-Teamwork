@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './core/components/about/about.component';
+import { ApplicationComponent } from './core/components/application/application.component';
 import { MainpageComponent } from './core/components/mainpage/mainpage.component';
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 import { TrainingsComponent } from './core/components/trainings/trainings.component';
@@ -12,10 +14,12 @@ const routes: Routes = [
     children: [
       { path: '', component: MainpageComponent },
       { path: 'kepzeseink', component: TrainingsComponent },
-      { path: '404', component: NotFoundPageComponent },
-      { path: '**', component: NotFoundPageComponent },
+      { path: 'rolunk', component: AboutComponent },
+      { path: 'jelentkezes', component: ApplicationComponent },
     ],
   },
+  { path: '404', component: NotFoundPageComponent },
+  { path: '**', component: NotFoundPageComponent },
 ];
 
 // const routes: Routes = [

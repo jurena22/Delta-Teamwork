@@ -12,7 +12,6 @@ export class FooterdataService {
     {
       icon: faFacebook,
       URL: 'https://www.facebook.com/progmasters.hu/',
-
     },
     {
       icon: faInstagram,
