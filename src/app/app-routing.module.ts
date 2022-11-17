@@ -22,25 +22,6 @@ const routes: Routes = [
   { path: '**', component: NotFoundPageComponent },
 ];
 
-// const routes: Routes = [
-//   { path: "", component: CoreComponent, children: [
-//       { path: "", component: MainpageComponent },
-//       { path: "rolunk", component: AboutComponent },
-//       { path: "tutorial", component: TutorialComponent },
-//       { path: "premium", component: PremiumComponent },
-//       { path: 'dashboard', component:  DashboardComponent, canActivate: [AuthGuard],},
-//       { path: 'szerverkezeles', component:  SzerverkezelesComponent},
-//       { path: 'szorakozas', component:  SzorakozasComponent},
-//       { path: 'egyeb-parancsok', component:  EgyebParancsokComponent},
-//       { path: 'adatvedelem', component:  AdatvedelemComponent},
-//       { path: 'felhasznalasi-feltetelek', component:  FelhasznalasiFeltetelekComponent},
-//     ],
-//   },
-//   { path: "redirection", component: RedirectionComponent },
-//   { path: '404', component:  NotFoundPageComponent},
-//   { path: '**', component:  NotFoundPageComponent},
-// ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
