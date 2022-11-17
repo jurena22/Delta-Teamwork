@@ -1,24 +1,27 @@
-# Angular projekt 
+# Webpage
 
-## Minimum követelmény:
-- Bootstrap használatával reszponzív megjelenés
-- Minimum 1 model osztály
-- Min. 2 képernyő (2 komponens)
-    - egyik képernyő komponensek kilistázása, szűrése, keresés
-    - másik képernyő adott elem(ek) részletes megjelenítése
-- Admin felület - adatokhoz CRUD műveletek megvalósítása (külön modul)
-    - 2 képernyő: listázás, szerkesztés
-- Backend: JSON-server vagy Firebase
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
-## Segítség az első lépésekhez:
-- Válasszátok ki az oldal témáját
-- Keressétek meg a hozzávalókat: képek, egyéb adatok.
-- Egyenlő arányban osszátok el a feladatokat.
-- Beszéljétek meg a stílust.
-- Osszátok ki, hogy ki melyik feladatot végzi el: el kell készíteni az osztályokat, majd komponenseket kell készíteni.
-- Ha megvan minden hozzávaló, akkor össze kell állítani az oldalt a szükséges komponensekből. Ezt érdemes együtt csinálni.
-- Miután minden megfelelően működik, csak akkor fogjatok hozzá a stílusok testreszabásának. Amit csak lehet, a komponensek saját stíluslapjába írjatok.
+## Development server
 
-### Ötletnek pár képet találtok az assets mappában
-### Projektmenedzsmenthez segítség: Trello 
-#### Az elképzelést, koncepciót 2022.11.11-ig írjátok meg a mentoroknak!
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

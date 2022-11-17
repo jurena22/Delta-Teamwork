@@ -1,0 +1,20 @@
+@use 'shared' as *;
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 31px;
+  align-items: center;
+  padding-inline-start: 2px;
+  display: flex;
+  height: 31px;
+  border: 1px solid $black;
+}
+
+.circle:hover {
+  color: aqua;
+  border: 1px solid aqua;
+}
