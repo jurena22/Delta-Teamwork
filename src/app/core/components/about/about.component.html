@@ -1,1 +1,77 @@
-<p>about works!</p>
+<div class="background">
+  <div class="d-flex align-items-center justify-content-center flex-column custom-height main-text">
+
+    <div class="container about-us-container">
+      <div class="row">
+        <div class="col-md-6 school-img-container p-3">
+          <img class="school-img"
+            src="https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+            alt="">
+          <div class="d-flex justify-content-around">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left-circle-fill back-arrow" viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left-circle-fill forward-arrow" viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="col-md-6 p-3 school-text-container">
+          <h1>Rólunk</h1>
+          <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to
+            corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow
+            the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+          <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going
+            forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined
+            cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+          <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key
+            performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a
+            deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+          <div class="d-flex justify-content-end">
+            <button (click)="goToEnroll()" type="button" class="btn btn-primary enroll-btn">Jelentkezés</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-flex align-items-center justify-content-center our-teachers-text-container">
+      <h2>Tanáraink</h2>
+    </div>
+
+
+    <div class="container teachers-container">
+      <div class="row">
+        <div class="col-md-4 p-3 my-3">
+          <img (click)="goToSzabi()"
+            src="https://www.biography.com/.image/t_share/MTgwNTA0NTc3NjY0MDk5ODAx/gettyimages-1128793071-copy.jpg"
+            class="left-teacher" alt="...">
+          <div class="card teacher-card">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-center">Csurgó Szabolcs</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 p-3">
+          <img src="https://www.biography.com/.image/t_share/MTgwNTA0NTc3NjY0MDk5ODAx/gettyimages-1128793071-copy.jpg"
+            class="middle-teacher" alt="...">
+          <div class="card teacher-card">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-center">Bakóczy Zoltán</h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 p-3 my-3">
+          <img src="https://www.biography.com/.image/t_share/MTgwNTA0NTc3NjY0MDk5ODAx/gettyimages-1128793071-copy.jpg"
+            class="right-teacher" alt="...">
+          <div class="card teacher-card">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-center">Énekes László</h5>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

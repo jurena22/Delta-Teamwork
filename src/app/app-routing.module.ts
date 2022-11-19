@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './core/components/about/about.component';
+import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
 import { ApplicationComponent } from './core/components/application/application.component';
 import { MainpageComponent } from './core/components/mainpage/mainpage.component';
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'kepzeseink', component: TrainingsComponent },
       { path: 'rolunk', component: AboutComponent },
       { path: 'jelentkezes', component: ApplicationComponent },
+      { path: 'rolunk/szabi', component: SzabiComponent },
     ],
   },
   { path: '404', component: NotFoundPageComponent },

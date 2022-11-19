@@ -14,6 +14,8 @@ import { FlashTextComponent } from './shared/components/flash-text/flash-text.co
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
+import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
+
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { ApplicationComponent } from './core/components/application/application.
     FlashTextComponent,
     NotFoundPageComponent,
     AboutComponent,
-    ApplicationComponent
+    SzabiComponent,
+    ApplicationComponent,
   ],
   imports: [
     BrowserModule,
