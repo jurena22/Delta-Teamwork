@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { TrainingModel } from 'src/app/model/training.model';
+import { TrainingdataService } from 'src/app/services/trainingdata.service';
 
 @Component({
   selector: 'app-trainings',
@@ -10,27 +12,24 @@ export class TrainingsComponent implements OnInit {
 
   trainings?: TrainingModel[];
 
-  
-  constructor() { }
-  
+  constructor(private trainingDataService: TrainingdataService) { }
+
   ngOnInit(): void {
-    this.trainings = [
-      {
-        name: "Front-end fejlesztő",
-        teacher: "Csurgó Szabolcs",
-        description: "HTML, CSS, JS"
-      },
-      {
-        name: "Back-end fejlesztő",
-        teacher: "Énekes László",
-        description: "nodeJS"
-      },
-      {
-        name:"Full-stack fejlesztő",
-        teacher:"Bakóczy Zoltán",
-        description:"Front-end + Back-end tananyag"
-      }
-    ]
+
+    this.getTrainings();
+
+  }
+
+  getTrainings(): void {
+    this.trainingDataService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.trainings = data;
+    });
   }
 
 }
