@@ -15,6 +15,9 @@ import { NotFoundPageComponent } from './core/components/not-found-page/not-foun
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
 import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
+import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
+import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
+
 
 
 
@@ -32,6 +35,9 @@ import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.comp
     AboutComponent,
     SzabiComponent,
     ApplicationComponent,
+    ZoliComponent,
+    LaciComponent
+
   ],
   imports: [
     BrowserModule,
