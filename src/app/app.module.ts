@@ -14,6 +14,12 @@ import { FlashTextComponent } from './shared/components/flash-text/flash-text.co
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+
 
 
 @NgModule({
@@ -34,7 +40,11 @@ import { ApplicationComponent } from './core/components/application/application.
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
