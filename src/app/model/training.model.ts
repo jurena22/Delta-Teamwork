@@ -1,5 +1,6 @@
 export interface TrainingModel {
     name: string,
     description: string,
-    teacher: string
+    teacher: string,
+    id?:string
 }

@@ -20,6 +20,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AdminComponent } from './admin/admin.component';
+import { TrainingAdminComponent } from './admin/training-admin/training-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -35,7 +38,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     FlashTextComponent,
     NotFoundPageComponent,
     AboutComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    AdminComponent,
+    TrainingAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

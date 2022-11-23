@@ -18,4 +18,12 @@ export class TrainingdataService {
   getAll(): AngularFirestoreCollection<TrainingModel> {
     return this.trainingsRef;
   }
+
+  create(training: TrainingModel): any {
+    return this.trainingsRef.add({ ...training });
+  }
+
+  delete(id: string): Promise<void> {
+    return this.trainingsRef.doc(id).delete();
+  }
 }
