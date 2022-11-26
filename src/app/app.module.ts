@@ -14,6 +14,9 @@ import { FlashTextComponent } from './shared/components/flash-text/flash-text.co
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
+import { FormComponent } from './core/components/application/form/form.component';
+import { SelectComponent } from './shared/select/select.component';
+import { RadioComponent } from './shared/radio/radio.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { ApplicationComponent } from './core/components/application/application.
     FlashTextComponent,
     NotFoundPageComponent,
     AboutComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    FormComponent,
+    SelectComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,

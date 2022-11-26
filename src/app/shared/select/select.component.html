@@ -1,0 +1,6 @@
+<div>
+    <label *ngIf="label" [for]="content" class="form-label">{{label}}</label>
+    <select [id]="content" class="form-select">
+      <option *ngFor="let course of options" [value]="course.key">{{course.displayValue}}</option>
+    </select>
+</div>
