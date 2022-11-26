@@ -108,7 +108,7 @@
     .enroll-btn {
       background-color: #eb1745;
       border-color: #eb1745;
-
+      transition: 0.6s;
       &:hover {
         background-color: rgba(226, 44, 74, 0.2);
         border-color: rgb(235, 23, 69);
