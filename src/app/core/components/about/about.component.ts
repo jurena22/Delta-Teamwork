@@ -13,17 +13,21 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   public imgURLS: any = [
-    {imgUrl:'https://i0.wp.com/blog.scoutingmagazine.org/wp-content/uploads/sites/2/2019/06/Toy-Story-Andy.jpg?fit=1200%2C630&ssl=1'},
-    {imgUrl:'https://images.unsplash.com/photo-1534996858221-380b92700493?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80'},
-    {imgUrl:'https://images.unsplash.com/photo-1506466010722-395aa2bef877?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1488&q=80'},
-    {imgUrl:'https://images.unsplash.com/photo-1519719498756-2f0d81cdf13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1375&q=80'},
-    {imgUrl:'https://images.unsplash.com/photo-1561422419-9120edee6a9e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80'},    
-    {imgUrl:'https://miro.medium.com/max/500/1*lvMZr7T_NTUSTrVc6EMgbA.jpeg'},
-    {imgUrl:'https://www.napimesek.hu/tartalom/uploads/2019/05/nemo-nyomaban-mese-borito.jpg'}
+    '../assets/images/gallery/headquerter.png',
+    '../assets/images/gallery/tanterem2.png',
+    '../assets/images/gallery/tanterem3.png',
+    '../assets/images/gallery/tanterem4.png',
+    '../assets/images/gallery/tanterem5.png',    
+    '../assets/images/gallery/tanterem6.png',
+    '../assets/images/gallery/tanterem7.png'
   ];
  
   public pictures: any = this.imgURLS[0];
+  
+  
 
   public goForward(){
 
