@@ -1,7 +1,41 @@
 .header-container {
-    border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ffffff73;
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: saturate(180%) blur(5px);
+}
+
+
+.custom-input:focus {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 0, 0, 0.45);
+  border: 1px solid #ffffff73;
+}
+
+
+.custom-checkbox {
+  input {
     background-color: #ffffff73;
-    -webkit-backdrop-filter: saturate(180%) blur(5px);
-    backdrop-filter: saturate(180%) blur(5px);
   }
 
+  input:focus {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 0, 0, 0.45);
+    border: 1px solid #ffffff73;
+  }
+  
+  input:checked:focus {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+    border: 1px solid #ffffff73;
+  }
+
+  input:checked {
+    border: 1px solid #ffffff73;
+    background-color: #dc3545;
+  }
+
+  input:active {
+    background-color:#dc3545;
+  }
+
+  
+
+}

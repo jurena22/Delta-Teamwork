@@ -2,42 +2,24 @@
     <form class="row g-3">
         <div class="col-md-6">
             <label for="name" class="form-label">Név</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control custom-input" id="name">
         </div>
 
         <div class="col-md-6">
             <label for="email" class="form-label">Email-cím</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control custom-input" id="email">
         </div>
 
         <div class="col-md-6">
             <label for="address" class="form-label">Cím</label>
-            <input type="text" class="form-control" id="address" placeholder="1056 Budapest, Irányi u. 3. III. em">
+            <input type="text" class="form-control custom-input" id="address" placeholder="1056 Budapest, Irányi u. 3.">
         </div>
 
         <div class="col-md-6">
             <label for="phoneNumber" class="form-label">Telefonszám</label>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="06201234567">
+            <input type="text" class="form-control custom-input" id="phoneNumber" placeholder="+36302234267">
         </div>
 
-        <!-- <div class="col-md-6">
-            <label for="course" class="form-label">Melyik képzésünk érdekel?</label>
-            <select id="course" class="form-select">
-                <option *ngFor="let course of courseOptions" [value]="course.key">{{course.displayValue}}</option>
-            </select>
-        </div> -->
-        
-        <!-- <fieldset class="mb-3">
-            <legend class="col-form-label col-sm-6 pt-0">Jártál már nálunk?</legend>
-            <div class="col-sm-6">
-                <div class="form-check" *ngFor="let status of statusRadioOptions">
-                    <input class="form-check-input" type="radio" name="status" [id]="status.id" [value]="status.value">
-                    <label class="form-check-label" for="newStudent">
-                        {{status.label}}
-                    </label>
-                </div>
-            </div>
-        </fieldset> -->
         <div class="row">
             <div class="col-md-6 mt-3">
                 <app-select [label]="'Melyik képzésünk érdekel?'" [content]="'inputCourse'" [options]="courseOptions"></app-select>
@@ -49,15 +31,15 @@
 
 
         <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
+            <div class="form-check custom-checkbox">
+                <input class="form-check-input" type="checkbox" id="gdprCheck">
+                <label class="form-check-label" for="gdprCheck">
+                    Elolvastam a PROGmasters Adatkezelési tájékoztatóját és tudomásul vettem az abban közölteket.
                 </label>
             </div>
         </div>
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+        <div class="col-12 d-flex justify-content-center mt-0">
+            <button type="submit" class="btn btn-danger">Jelentkezés</button>
         </div>
     </form>
 </div>
