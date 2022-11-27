@@ -24,7 +24,9 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
-              "includePaths": ["src/scss"]
+              "includePaths": [
+                "src/scss"
+              ]
             },
             "assets": [
               "src/favicon.ico",
@@ -33,7 +35,9 @@
             "styles": [
               "src/scss/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,7 +99,9 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
-              "includePaths": ["src/scss"]
+              "includePaths": [
+                "src/scss"
+              ]
             },
             "assets": [
               "src/favicon.ico",
@@ -105,6 +111,16 @@
               "src/scss/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "webpage:build:production",
+            "firebaseProject": "angular-projekt-ab1af",
+            "firebaseHostingSite": "progmasters"
           }
         }
       }

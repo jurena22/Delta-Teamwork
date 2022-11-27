@@ -14,6 +14,16 @@ import { FlashTextComponent } from './shared/components/flash-text/flash-text.co
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AdminComponent } from './admin/admin.component';
+import { TrainingAdminComponent } from './admin/training-admin/training-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { FormComponent } from './core/components/application/form/form.component';
 import { SelectComponent } from './shared/select/select.component';
 import { RadioComponent } from './shared/radio/radio.component';
@@ -33,6 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NotFoundPageComponent,
     AboutComponent,
     ApplicationComponent,
+    AdminComponent,
+    TrainingAdminComponent,
     FormComponent,
     SelectComponent,
     RadioComponent
@@ -42,7 +54,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
