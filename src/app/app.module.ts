@@ -22,7 +22,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AdminComponent } from './admin/admin.component';
 import { TrainingAdminComponent } from './admin/training-admin/training-admin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { FormComponent } from './core/components/application/form/form.component';
 import { SelectComponent } from './shared/select/select.component';

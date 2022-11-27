@@ -3,4 +3,5 @@ export interface TrainingModel {
     description: string,
     teacher: string,
     id?:string
+    applicants: number,
 }
