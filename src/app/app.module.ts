@@ -17,6 +17,7 @@ import { ApplicationComponent } from './core/components/application/application.
 import { FormComponent } from './core/components/application/form/form.component';
 import { SelectComponent } from './shared/select/select.component';
 import { RadioComponent } from './shared/radio/radio.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { RadioComponent } from './shared/radio/radio.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

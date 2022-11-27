@@ -1,45 +1,83 @@
 <div class="card header-container p-3 mt-3" style="width: 70vw">
-    <form class="row g-3">
+    <form *ngIf="applicationForm" class="row g-3" [formGroup]="applicationForm" (ngSubmit)="saveApplication()">
         <div class="col-md-6">
             <label for="name" class="form-label">Név</label>
-            <input type="text" class="form-control custom-input" id="name">
+            <input type="text" class="form-control custom-input" id="name" formControlName="name">
+            <small *ngIf="applicationForm.get('name')?.invalid && applicationForm.get('name')?.dirty"
+                class="text-danger">Kérjük, létező nevet adj meg!</small>
         </div>
 
         <div class="col-md-6">
             <label for="email" class="form-label">Email-cím</label>
-            <input type="email" class="form-control custom-input" id="email">
+            <input type="email" class="form-control custom-input" id="email" formControlName="email">
+            <small *ngIf="applicationForm.get('email')?.invalid && applicationForm.get('email')?.dirty"
+                class="text-danger">Kérjük, létező email-címet adj meg!</small>
         </div>
 
         <div class="col-md-6">
             <label for="address" class="form-label">Cím</label>
-            <input type="text" class="form-control custom-input" id="address" placeholder="1056 Budapest, Irányi u. 3.">
+            <input type="text" class="form-control custom-input" id="address" formControlName="address"
+                placeholder="1056 Budapest, Irányi u. 3.">
+            <small *ngIf="applicationForm.get('address')?.invalid && applicationForm.get('address')?.dirty"
+                class="text-danger">Nem adtál meg címet!</small>
         </div>
 
         <div class="col-md-6">
             <label for="phoneNumber" class="form-label">Telefonszám</label>
-            <input type="text" class="form-control custom-input" id="phoneNumber" placeholder="+36302234267">
+            <input type="text" class="form-control custom-input" id="phoneNumber" formControlName="phoneNumber"
+                placeholder="+36 30 223 4267">
+            <small *ngIf="applicationForm.get('phoneNumber')?.invalid && applicationForm.get('phoneNumber')?.dirty"
+                class="text-danger">Kérjük, megfelelő formátumú telefonszámot adj meg!</small>
         </div>
 
-        <div class="row">
+        <div class="col-md-6">
+            <label for="course" class="form-label">Melyik képzésünk érdekel?</label>
+            <select id="course" class="form-select" formControlName="courses">
+                <option *ngFor="let course of courseOptions" [value]="course.key">{{course.displayValue}}</option>
+            </select>
+            <small *ngIf="applicationForm.get('courses')?.invalid && applicationForm.get('courses')?.dirty"
+                class="text-danger">Kérjük, válassz képzéseink közül! Mind szuper!</small>
+        </div>
+
+        <fieldset class="mb-3">
+            <legend class="col-form-label col-sm-6 pt-0">Jártál már nálunk?</legend>
+            <div class="col-sm-6">
+                <div class="form-check" *ngFor="let status of statusRadioOptions">
+                    <input class="form-check-input" type="radio" name="studentStatus" formControlName="studentStatus" [id]="status.id"
+                        [value]="status.value">
+                    <label class="form-check-label" for="newStudent">
+                        {{status.label}}
+                    </label>
+                    <small *ngIf="applicationForm.get('studentStatus')?.invalid && applicationForm.get('studentStatus')?.dirty"
+                        class="text-danger">Kérjük, válassz!</small>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- sharedben külön komponensként de vmi baja van a formcontrollerekkel -->
+        <!-- <div class="row">
             <div class="col-md-6 mt-3">
-                <app-select [label]="'Melyik képzésünk érdekel?'" [content]="'inputCourse'" [options]="courseOptions"></app-select>
+                <app-select [label]="'Melyik képzésünk érdekel?'" [content]="'inputCourse'" [options]="courseOptions"
+                [form]="applicationForm" [controllerName]="'courses'"></app-select>
             </div>
             <div class="col-md-6 p-3">
-                <app-radio [options]="statusRadioOptions"></app-radio>
+                <app-radio [options]="statusRadioOptions" [controllerName]="'studentStatus'" [form]="applicationForm" ></app-radio>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="col-12">
             <div class="form-check custom-checkbox">
-                <input class="form-check-input" type="checkbox" id="gdprCheck">
+                <input class="form-check-input" type="checkbox" id="gdprCheck" formControlName="gdprCheck">
                 <label class="form-check-label" for="gdprCheck">
                     Elolvastam a PROGmasters Adatkezelési tájékoztatóját és tudomásul vettem az abban közölteket.
                 </label>
+                <small *ngIf="applicationForm.get('gdprCheck')?.invalid && applicationForm.get('gdprCheck')?.dirty" 
+             class="text-danger">Kérjük, fogadd el adatkezelési tájékoztatónkat!</small>
             </div>
         </div>
         <div class="col-12 d-flex justify-content-center mt-0">
-            <button type="submit" class="btn btn-danger">Jelentkezés</button>
+            <button type="submit" class="btn btn-danger" [disabled]="applicationForm.invalid">Jelentkezés</button>
         </div>
     </form>
 </div>
