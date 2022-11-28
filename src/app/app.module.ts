@@ -28,6 +28,7 @@ import { FormComponent } from './core/components/application/form/form.component
 import { SelectComponent } from './shared/select/select.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-admin.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TrainingAdminComponent,
     FormComponent,
     SelectComponent,
-    RadioComponent
+    RadioComponent,
+    ApplicantsAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -28,8 +28,8 @@ export class FormComponent implements OnInit {
   // ]
   
   statusRadioOptions: {id: string, value: string, label: string}[] = [
-    {id: 'newStudent', value: 'no', label: 'Nem, de szeretnék.'},
-    {id: 'student', value: 'yes', label: 'Igen, ezért is jöttem vissza.'}
+    {id: 'newStudent', value: 'Nem', label: 'Nem, de szeretnék.'},
+    {id: 'student', value: 'Igen', label: 'Igen, ezért is jöttem vissza.'}
   ];
 
 
@@ -51,7 +51,7 @@ export class FormComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.pattern(/^[\S]+@[\S]+\.[a-z]{2,3}$/)]),
       address: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^\+[0-9 ]{10,20}$/)]),
-      courses: new FormControl(null, Validators.required),
+      course: new FormControl(null, Validators.required),
       studentStatus: new FormControl(null, Validators.required),
       gdprCheck: new FormControl(null, [Validators.required, Validators.requiredTrue])
     })

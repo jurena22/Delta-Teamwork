@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-admin.component';
 import { TrainingAdminComponent } from './admin/training-admin/training-admin.component';
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
     ],
   },
   { path: 'admin', component: AdminComponent, children: [
-    { path: 'trainingadmin', component: TrainingAdminComponent}
+    { path: 'trainingadmin', component: TrainingAdminComponent},
+    { path: 'applicantsadmin', component: ApplicantsAdminComponent}
   ] },
   { path: '404', component: NotFoundPageComponent },
   { path: '**', component: NotFoundPageComponent },

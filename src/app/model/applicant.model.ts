@@ -4,5 +4,6 @@ export interface ApplicantModel {
     address:string,
     phoneNumber:string,
     course:string,
+    studentStatus:string,
     id?:string
 }

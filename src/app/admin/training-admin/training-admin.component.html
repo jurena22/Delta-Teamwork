@@ -5,13 +5,15 @@
                 <th>Képzés</th>
                 <th>Leírás</th>
                 <th>Oktató</th>
+                <th>Jelentkezők száma</th>
                 <th>Törlés</th>
             </thead>
             <tbody>
                 <tr *ngFor="let training of trainings">
                     <td class="col-3">{{training.name}}</td>
-                    <td class="col-6">{{training.description}}</td>
+                    <td class="col-3">{{training.description}}</td>
                     <td class="col-3">{{training.teacher}}</td>
+                    <td class="col-3">{{getApplicantsNumber(training.name)}}</td>
                     <td><button (click)="chooseTraining(training)"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Törlés</button></td>
                 </tr>
             </tbody>
