@@ -20,7 +20,10 @@ export class TrainingAdminComponent implements OnInit {
   constructor(private trainingDataService: TrainingdataService) { }
 
   ngOnInit(): void {
-    this.getTrainings();
+
+    this.trainingDataService.getAll().subscribe({
+      next: (data: TrainingModel[])=>{this.trainings = data}
+    });
 
     this.trainingForm = new FormGroup({
       name: new FormControl('', [
@@ -36,17 +39,7 @@ export class TrainingAdminComponent implements OnInit {
 
   }
 
-  getTrainings(): void {
-    this.trainingDataService.getAll().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe(data => {
-      this.trainings = data;
-    });
-  }
+  
 
   chooseTraining(training: TrainingModel) {
     this.chosenTraining = training;
@@ -55,20 +48,14 @@ export class TrainingAdminComponent implements OnInit {
 
   deleteTraining() {
     if (this.chosenTraining.id) {
-      this.trainingDataService.delete(this.chosenTraining.id)
-        .then(() => {
-          this.getTrainings();
-        })
+      this.trainingDataService.delete(this.chosenTraining.id);
 
     }
   }
 
   saveTraining(): void {
     if(this.trainingForm.valid){
-    this.trainingDataService.create(this.trainingForm.value).then(() => {
-      console.log('Created new item successfully!');
-    });
-    this.getTrainings()
+    this.trainingDataService.create(this.trainingForm.value);
   }
   }
 }

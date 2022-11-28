@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TrainingModel } from 'src/app/model/training.model';
+import { ApplicationService } from 'src/app/services/application.service';
+import { TrainingdataService } from 'src/app/services/trainingdata.service';
 
 @Component({
   selector: 'app-form',
@@ -10,17 +13,19 @@ export class FormComponent implements OnInit {
 
   applicationForm!: FormGroup;
 
-  courseOptions: { key: string, displayValue: string }[] = [
-    {key: 'select', displayValue: "Válassz képzést..."},
-    {key:'JFEND', displayValue: "Junior frontend fejlesztő"},
-    {key:'JBEND', displayValue: "Junior Java backend fejlesztő"},
-    {key:'JSYST', displayValue: "Junior rendszerüzemeltető"},
-    {key:'JTEST', displayValue: "Junior szoftvertesztelő"},
-    {key:'DBSPEC', displayValue: "Adatbázis üzemeltető (specialista)"},
-    {key:'AUTTEST', displayValue: "Junior automata tesztelő"},
-    {key:'FULLSTACK', displayValue: "Junior Fullstack API fejlesztő"},
-    {key:'BENDSPEC', displayValue: "Junior vállalati Java backend fejlesztő"}
-  ]
+  trainings?: TrainingModel[];
+
+  // courseOptions: { key: string, displayValue: string }[] = [
+  //   {key: 'select', displayValue: "Válassz képzést..."},
+  //   {key:'JFEND', displayValue: "Junior frontend fejlesztő"},
+  //   {key:'JBEND', displayValue: "Junior Java backend fejlesztő"},
+  //   {key:'JSYST', displayValue: "Junior rendszerüzemeltető"},
+  //   {key:'JTEST', displayValue: "Junior szoftvertesztelő"},
+  //   {key:'DBSPEC', displayValue: "Adatbázis üzemeltető (specialista)"},
+  //   {key:'AUTTEST', displayValue: "Junior automata tesztelő"},
+  //   {key:'FULLSTACK', displayValue: "Junior Fullstack API fejlesztő"},
+  //   {key:'BENDSPEC', displayValue: "Junior vállalati Java backend fejlesztő"}
+  // ]
   
   statusRadioOptions: {id: string, value: string, label: string}[] = [
     {id: 'newStudent', value: 'no', label: 'Nem, de szeretnék.'},
@@ -29,9 +34,17 @@ export class FormComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(
+    private applicationService: ApplicationService,
+    private trainingDataService: TrainingdataService
+    ) { }
 
   ngOnInit(): void {
+
+    this.trainingDataService.getAll().subscribe({
+      next: (data: TrainingModel[])=>{this.trainings = data}
+    });
+
     this.applicationForm = new FormGroup({
       //regexeket lehet finomítani
       name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Z][a-záéíóöőüű]+ [A-Z][a-záéíóöőüű]+/)]),
@@ -47,6 +60,8 @@ export class FormComponent implements OnInit {
   saveApplication(): void {
     console.log(this.applicationForm);
     console.log(this.applicationForm.value);
+
+    this.applicationService.create(this.applicationForm.value);
   }
 
 }

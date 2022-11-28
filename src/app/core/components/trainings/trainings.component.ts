@@ -16,20 +16,12 @@ export class TrainingsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getTrainings();
-
-  }
-
-  getTrainings(): void {
-    this.trainingDataService.getAll().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe(data => {
-      this.trainings = data;
+    this.trainingDataService.getAll().subscribe({
+      next: (data: TrainingModel[])=>{this.trainings = data}
     });
+
   }
+
+  
 
 }

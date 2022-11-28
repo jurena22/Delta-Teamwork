@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { addDoc, collection, collectionData, deleteDoc, doc, docData, DocumentData, Firestore } from '@angular/fire/firestore';
+import { from, Observable } from 'rxjs';
+
 import { TrainingModel } from '../model/training.model';
 
 @Injectable({
@@ -7,23 +10,20 @@ import { TrainingModel } from '../model/training.model';
 })
 export class TrainingdataService {
 
-  private dbPath = '/trainings';
+  trainingsRef = collection(this.firestore, "trainings");
 
-  trainingsRef: AngularFirestoreCollection<TrainingModel>;
+  constructor(private firestore: Firestore) {}
 
-  constructor(private db: AngularFirestore) {
-    this.trainingsRef = db.collection(this.dbPath);
+  getAll(): Observable<TrainingModel[]> {
+    return collectionData(this.trainingsRef, {idField: 'id'}) as Observable<TrainingModel[]>;
   }
 
-  getAll(): AngularFirestoreCollection<TrainingModel> {
-    return this.trainingsRef;
+  create(training: TrainingModel): Observable<DocumentData> {
+    return from(addDoc(this.trainingsRef, training));
   }
 
-  create(training: TrainingModel): any {
-    return this.trainingsRef.add({ ...training });
-  }
-
-  delete(id: string): Promise<void> {
-    return this.trainingsRef.doc(id).delete();
+  delete(id: string): Observable<void> {
+    const trainingDoc = doc(this.firestore, `trainings/${id}`);
+    return from(deleteDoc(trainingDoc));
   }
 }
