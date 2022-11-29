@@ -9,23 +9,23 @@ export class MainpageComponent implements OnInit {
   wordText1: string[] = ['Új kihívásra vágysz?', 'Kipróbálnál valami újat?', 'Érdekel az IT világa?', 'Munkahelyváltás előtt állsz?', 'PROGmasters?'];
   images = [
     {
-      title: 'testz',
-      secodTitle: '1',
+      title: 'Új állás',
+      secondTitle: 'A PROGmastersnél nem engedjük el a kezed a képzés után. 96% a szakmában elhelyezkedett tanulóink aránya.',
       url:"assets/images/new-job.jpg",
     },
     {
-      title: 'teszt2',
-      secodTitle: '2',
+      title: 'Programozási nyelvek, -metódusok',
+      secondTitle: 'Ha még sosem próbáltad... Ha már megy, de még nem tökéletesen... Bárhogy is legyen, bátran jelentkezz képzéseinkre!',
       url:"assets/images/languages.png",
     },
     {
-      title: 'teszt3',
-      secodTitle: '3',
+      title: 'Soft-skillek',
+      secondTitle: 'Képzéseinken nem csak programozni tanulhatsz meg. Oktatóink kiemelt figyelmet fordítanak a soft-skillekre, így sikeresebb lehetsz az állásinterjúkon!',
       url:"assets/images/softskills.jpg",
     },
     {
-      title: 'teszt4',
-      secodTitle: '4',
+      title: 'Partnerkapcsolatok',
+      secondTitle: 'A PROGmastersnél fontosnak tartjuk a partneri kapcsolatok kialakítását. Több, mint 80 céggel ápolunk jó viszonyt.',
       url:"assets/images/partners.jpg",
     },
   ];
