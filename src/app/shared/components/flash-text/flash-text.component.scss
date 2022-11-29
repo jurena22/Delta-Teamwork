@@ -30,3 +30,27 @@
     90% { opacity: 0;}
     95% { opacity: 1;}
    }
+
+   @media screen and (max-width: 1120px) {
+    .flash {
+      font-size: 75px !important;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .flash {
+      font-size: 55px !important;
+    }
+  } 
+  
+  @media screen and (max-width: 720px) {
+    .flash {
+      font-size: 35px !important;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .flash {
+      font-size: 20px !important;
+    }
+  }

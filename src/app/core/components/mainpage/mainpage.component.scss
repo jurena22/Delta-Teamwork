@@ -12,9 +12,19 @@
 
   .custom-height {
     height: 100vh;
+
+    @media screen and (max-width: 1120px) {
+      app-type-delete {
+        font-size: 10px;
+      }
+      app-flash-text {
+        font-size: 10px;
+      }
+    }
+  }
   }
 
-}
+
 
 .carousel {
   .picsum-img-wrapper {

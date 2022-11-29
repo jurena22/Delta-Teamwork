@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent implements OnInit {
-  wordText1: string[] = ['Új kihívásra vágysz?', 'Kipróbálnál valami újat?', 'Érdekel az IT világa?', 'Munkahelyváltás előtt állsz?', 'PROGmasters?'];
+  wordText1: string[] = ['Munkahelyváltás előtt állsz?'];
   images = [
     {
       title: 'Új állás',
