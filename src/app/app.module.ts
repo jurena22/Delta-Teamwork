@@ -27,8 +27,9 @@ import { TrainingAdminComponent } from './admin/training-admin/training-admin.co
 import { FormComponent } from './core/components/application/form/form.component';
 import { SelectComponent } from './shared/select/select.component';
 import { RadioComponent } from './shared/radio/radio.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-admin.component';
+import { LoginComponent } from './admin/login/login.component';
 
 
 @NgModule({
@@ -49,7 +50,9 @@ import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-ad
     FormComponent,
     SelectComponent,
     RadioComponent,
-    ApplicantsAdminComponent
+    ApplicantsAdminComponent,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-ad
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
