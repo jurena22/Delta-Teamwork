@@ -1,10 +1,15 @@
-<h1 class="text-center">Képzéseink</h1>
-<div class="container d-flex justify-content-between">
-    <div *ngFor="let training of trainings" class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{training.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Oktató: {{training.teacher}}</h6>
-          <p class="card-text">Technológiák: {{training.description}}</p>
-        </div>
-      </div>
+<div class="background position-absolute pt-3">
+  <div class="d-flex align-items-center justify-content-center flex-column">
+    <h1 class="text-center">Képzéseink</h1>
+    <div class="container d-flex justify-content-between mt-4">
+        <div *ngFor="let training of trainings" class="card col-md-3 shadow custom-card">
+            <div class="card-body">
+              <h5 class="card-title">{{training.name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Oktató: {{training.teacher}}</h6>
+              <p class="card-text">Technológiák: {{training.description}}</p>
+            </div>
+          </div>
+    </div>
+    
+  </div>
 </div>
