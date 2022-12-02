@@ -46,9 +46,10 @@ export class FormComponent implements OnInit {
     });
 
     this.applicationForm = new FormGroup({
-      //regexeket lehet finomítani
-      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Z][a-záéíóöőüű]+ [A-Z][a-záéíóöőüű]+/)]),
-      email: new FormControl('', [Validators.required, Validators.pattern(/^[\S]+@[\S]+\.[a-z]{2,3}$/)]),
+      // name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Z][a-záéíóöőüű]+ [A-Z][a-záéíóöőüű]+/)]),
+      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-ZÁÉÍÓÖŐÜŰÚ][\w'\-,.][^0-9_!¡?÷?¿\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)]),
+      // email: new FormControl('', [Validators.required, Validators.pattern(/^[\S]+@[\S]+\.[a-z]{2,3}$/)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^\+[0-9 ]{10,20}$/)]),
       course: new FormControl(null, Validators.required),
@@ -58,7 +59,7 @@ export class FormComponent implements OnInit {
   }
 
   saveApplication(): void {
-    console.log(this.applicationForm);
+    // console.log(this.applicationForm);
     console.log(this.applicationForm.value);
 
     this.applicationService.create(this.applicationForm.value);
