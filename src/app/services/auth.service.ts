@@ -49,7 +49,7 @@ export class AuthService {
   public async logout(): Promise<void> {
     await this.auth.signOut();
     this.loggedInStatus.next(false);
-    this.router.navigate(['admin/login']);
+    this.router.navigate(['admin']);
   }
 
 

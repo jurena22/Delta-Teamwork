@@ -21,4 +21,6 @@
   </div>
 </nav>
 
+<app-login *ngIf="!(loggedInStatus$ | async)"></app-login>
+
 <router-outlet></router-outlet>
