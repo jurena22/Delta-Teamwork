@@ -10,10 +10,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let training of trainings">
-                    <td class="col-3">{{training.name}}</td>
-                    <td class="col-3">{{training.description}}</td>
-                    <td class="col-3">{{training.teacher}}</td>
-                    <td class="col-3">{{getApplicantsNumber(training.name)}}</td>
+                    <td class="col-2">{{training.name}}</td>
+                    <td class="col-7">{{training.description}}</td>
+                    <td class="col-2">{{training.teacher}}</td>
+                    <td class="col-1">{{getApplicantsNumber(training.name)}}</td>
                     <td><button (click)="chooseTraining(training)"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Törlés</button></td>
                 </tr>
             </tbody>
@@ -49,7 +49,7 @@
 
         <div class="col-12">
             <label for="inputDescription" class="form-label">Leírás</label>
-            <input type="text" class="form-control" id="inputDescription" formControlName="description" />
+            <textarea rows="4" class="form-control" style="height: 100px;" id="inputDescription" formControlName="description" ></textarea>
         </div>
         
         <div class="col-12">
