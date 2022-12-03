@@ -30,6 +30,11 @@ import { RadioComponent } from './shared/radio/radio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-admin.component';
 import { LoginComponent } from './admin/login/login.component';
+import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
+import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
+import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
+
+
 
 
 @NgModule({
@@ -44,6 +49,7 @@ import { LoginComponent } from './admin/login/login.component';
     FlashTextComponent,
     NotFoundPageComponent,
     AboutComponent,
+    SzabiComponent,
     ApplicationComponent,
     AdminComponent,
     TrainingAdminComponent,
@@ -52,7 +58,10 @@ import { LoginComponent } from './admin/login/login.component';
     RadioComponent,
     ApplicantsAdminComponent,
     LoginComponent,
-    
+    ,
+    ZoliComponent,
+    LaciComponent
+
   ],
   imports: [
     BrowserModule,
