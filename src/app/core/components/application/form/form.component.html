@@ -6,7 +6,7 @@
                 <label for="name" class="form-label">Név</label>
                 <input type="text" class="form-control custom-input" id="name" formControlName="name">
                 <small *ngIf="applicationForm.get('name')?.invalid && applicationForm.get('name')?.dirty"
-                    class="text-danger">Kérjük, ne használj számokat vagy speciális karaktereket!</small>
+                    class="text-danger">Kérjük, létező nevet adj meg!</small>
             </div>
     
             <div class="col-md-6">
