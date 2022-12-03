@@ -54,12 +54,14 @@
     backdrop-filter: saturate(180%) blur(5px);
     color: $black;
     padding: 8px;
+    right: calc(100% - 75%);
+    left: calc(100% - 75%);
 
    .title {
      font-size: 35px;
    }
    .secondTitle {
-     font-size: 20px;
+     font-size: 18px;
    }
 
 
