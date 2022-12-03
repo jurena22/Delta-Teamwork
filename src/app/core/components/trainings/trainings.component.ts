@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { TrainingModel } from 'src/app/model/training.model';
+import { TrainingdataService } from 'src/app/services/trainingdata.service';
 
 @Component({
   selector: 'app-trainings',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingsComponent implements OnInit {
 
-  constructor() { }
+  trainings?: TrainingModel[];
+
+  constructor(private trainingDataService: TrainingdataService) { }
 
   ngOnInit(): void {
+
+    this.trainingDataService.getAll().subscribe({
+      next: (data: TrainingModel[])=>{this.trainings = data}
+    });
+
   }
+
+  
 
 }

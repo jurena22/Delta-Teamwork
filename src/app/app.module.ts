@@ -14,6 +14,27 @@ import { FlashTextComponent } from './shared/components/flash-text/flash-text.co
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
 import { AboutComponent } from './core/components/about/about.component';
 import { ApplicationComponent } from './core/components/application/application.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AdminComponent } from './admin/admin.component';
+import { TrainingAdminComponent } from './admin/training-admin/training-admin.component';
+
+
+import { FormComponent } from './core/components/application/form/form.component';
+import { SelectComponent } from './shared/select/select.component';
+import { RadioComponent } from './shared/radio/radio.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-admin.component';
+import { LoginComponent } from './admin/login/login.component';
+import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
+import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
+import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
+
+
 
 
 @NgModule({
@@ -28,13 +49,32 @@ import { ApplicationComponent } from './core/components/application/application.
     FlashTextComponent,
     NotFoundPageComponent,
     AboutComponent,
-    ApplicationComponent
+    SzabiComponent,
+    ApplicationComponent,
+    AdminComponent,
+    TrainingAdminComponent,
+    FormComponent,
+    SelectComponent,
+    RadioComponent,
+    ApplicantsAdminComponent,
+    LoginComponent,
+    ZoliComponent,
+    LaciComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

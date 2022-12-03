@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./application.component.scss']
 })
 export class ApplicationComponent implements OnInit {
+  message: string[] = ['Csatlakozz hozzánk!', 'Jelentkezz képzéseinkre!']
 
   constructor() { }
 
