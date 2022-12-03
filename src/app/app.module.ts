@@ -58,7 +58,6 @@ import { LaciComponent } from './core/components/about/mentors/laci/laci.compone
     RadioComponent,
     ApplicantsAdminComponent,
     LoginComponent,
-    ,
     ZoliComponent,
     LaciComponent
 
