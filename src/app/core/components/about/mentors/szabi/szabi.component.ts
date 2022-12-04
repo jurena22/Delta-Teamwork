@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { MentorModel } from 'src/app/model/mentor.model';
 import { MentorService } from 'src/app/services/mentor.service';
 
@@ -8,14 +9,16 @@ import { MentorService } from 'src/app/services/mentor.service';
   templateUrl: './szabi.component.html',
   styleUrls: ['./szabi.component.scss']
 })
-export class SzabiComponent implements OnInit {
+export class SzabiComponent implements OnInit, OnDestroy {
+
+  szabiArray: MentorModel[] = [];
+  dataSubscription?: Subscription;
 
   constructor(private router: Router, private mentorService: MentorService) { }
 
-  szabiArray: MentorModel[] = [];
 
   ngOnInit(): void {
-    this.mentorService.mentorObs$.subscribe({
+    this.dataSubscription = this.mentorService.mentorObs$.subscribe({
       next: (data: MentorModel[]) => this.szabiArray = data
     })
   }
@@ -26,6 +29,11 @@ export class SzabiComponent implements OnInit {
 
   goToEnroll(){
     this.router.navigate(["jelentkezes"])
+  }
+
+  ngOnDestroy(): void {
+    // console.log('szabi mentor leíratkozás');
+    this.dataSubscription?.unsubscribe();
   }
 
   

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { MentorModel } from 'src/app/model/mentor.model';
 import { MentorService } from 'src/app/services/mentor.service';
 
@@ -8,14 +9,16 @@ import { MentorService } from 'src/app/services/mentor.service';
   templateUrl: './zoli.component.html',
   styleUrls: ['./zoli.component.scss']
 })
-export class ZoliComponent implements OnInit {
+export class ZoliComponent implements OnInit, OnDestroy {
+
+  zoliArray: MentorModel[] = [];
+  dataSubscription?: Subscription;
 
   constructor(private router: Router, private mentorService: MentorService) { }
 
-  zoliArray: MentorModel[] = [];
 
   ngOnInit(): void {
-    this.mentorService.mentorObs$.subscribe({
+    this.dataSubscription = this.mentorService.mentorObs$.subscribe({
       next: (data: MentorModel[]) => this.zoliArray = data
     })
   }
@@ -26,5 +29,10 @@ export class ZoliComponent implements OnInit {
 
   goToEnroll(){
     this.router.navigate(["jelentkezes"])
+  }
+
+  ngOnDestroy(): void {
+    // console.log('zoli mentor leíratkozás');
+    this.dataSubscription?.unsubscribe();
   }
 }

@@ -35,7 +35,8 @@ const routes: Routes = [
     { path: 'applicantsadmin', component: ApplicantsAdminComponent, canActivate: [AuthGuardGuard]}
   ] },
   { path: '404', component: NotFoundPageComponent },
-  { path: '**', component: NotFoundPageComponent },
+  // { path: '**', component: NotFoundPageComponent },
+  { path: '**', component: MainpageComponent },
 ];
 
 @NgModule({

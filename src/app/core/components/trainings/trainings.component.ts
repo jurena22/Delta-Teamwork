@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TrainingModel } from 'src/app/model/training.model';
 import { TrainingdataService } from 'src/app/services/trainingdata.service';
 
@@ -8,9 +9,10 @@ import { TrainingdataService } from 'src/app/services/trainingdata.service';
   templateUrl: './trainings.component.html',
   styleUrls: ['./trainings.component.scss']
 })
-export class TrainingsComponent implements OnInit {
+export class TrainingsComponent implements OnInit, OnDestroy {
 
   trainings?: TrainingModel[];
+  dataSubscription?: Subscription;
 
   constructor(
     private trainingDataService: TrainingdataService,
@@ -18,8 +20,7 @@ export class TrainingsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
-    this.trainingDataService.getAll().subscribe({
+    this.dataSubscription = this.trainingDataService.getAll().subscribe({
       next: (data: TrainingModel[])=>{this.trainings = data}
     });
 
@@ -29,6 +30,10 @@ export class TrainingsComponent implements OnInit {
     this.router.navigate(['jelentkezes']);
   }
 
+  ngOnDestroy(): void {
+    // console.log('trainings leíratkozás');
+    this.dataSubscription?.unsubscribe();
+  }
   
 
 }
