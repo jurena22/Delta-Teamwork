@@ -59,8 +59,7 @@ export class FormComponent implements OnInit {
   }
 
   saveApplication(): void {
-    // console.log(this.applicationForm);
-    console.log(this.applicationForm.value);
+    // console.log(this.applicationForm.value);
 
     this.applicationService.create(this.applicationForm.value);
     this.applicationForm.reset();
