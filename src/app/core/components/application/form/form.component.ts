@@ -36,7 +36,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
     this.applicationForm = new FormGroup({
       // name: new FormControl('', [Validators.required, Validators.pattern(/^[A-Z][a-záéíóöőüű]+ [A-Z][a-záéíóöőüű]+/)]),
-      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-ZÁÉÍÓÖŐÜŰÚ][\w'\-,.][^0-9_!¡?÷?¿\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)]),
+      name: new FormControl('', [Validators.required, Validators.pattern(/^[A-ZÁÉÍÓÖŐÜŰÚ][\wáéíóöőúüű'\-,.][^0-9_!¡?÷?¿\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)]),
       // email: new FormControl('', [Validators.required, Validators.pattern(/^[\S]+@[\S]+\.[a-z]{2,3}$/)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormControl('', [Validators.required]),
@@ -49,6 +49,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   saveApplication(): void {
     // console.log(this.applicationForm.value);
+    alert('Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.')
     this.applicationService.create(this.applicationForm.value);
     this.applicationForm.reset();
   }
