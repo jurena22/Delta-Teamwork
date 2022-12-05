@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { TrainingModel } from 'src/app/model/training.model';
 import { ApplicationService } from 'src/app/services/application.service';
@@ -26,7 +27,8 @@ export class FormComponent implements OnInit, OnDestroy {
 
   constructor(
     private applicationService: ApplicationService,
-    private trainingDataService: TrainingdataService
+    private trainingDataService: TrainingdataService,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -49,9 +51,10 @@ export class FormComponent implements OnInit, OnDestroy {
 
   saveApplication(): void {
     // console.log(this.applicationForm.value);
-    alert('Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.')
+    // alert('Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.')
     this.applicationService.create(this.applicationForm.value);
     this.applicationForm.reset();
+    this.toastr.success("Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.");
   }
 
   ngOnDestroy(): void {

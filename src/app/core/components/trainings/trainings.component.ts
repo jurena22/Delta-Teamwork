@@ -16,7 +16,7 @@ export class TrainingsComponent implements OnInit, OnDestroy {
 
   constructor(
     private trainingDataService: TrainingdataService,
-    private router: Router
+    private router: Router,
     ) { }
 
   ngOnInit(): void {

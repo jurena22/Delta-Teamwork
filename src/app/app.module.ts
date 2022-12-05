@@ -33,6 +33,7 @@ import { LoginComponent } from './admin/login/login.component';
 import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
 import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
 import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -59,7 +60,7 @@ import { LaciComponent } from './core/components/about/mentors/laci/laci.compone
     ApplicantsAdminComponent,
     LoginComponent,
     ZoliComponent,
-    LaciComponent
+    LaciComponent,
 
   ],
   imports: [
@@ -75,6 +76,8 @@ import { LaciComponent } from './core/components/about/mentors/laci/laci.compone
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
+    ToastrModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
