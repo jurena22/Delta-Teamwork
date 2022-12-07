@@ -22,7 +22,7 @@
             <div class="col-md-6">
                 <label for="address" class="form-label">Cím</label>
                 <input type="text" class="form-control custom-input" id="address" formControlName="address"
-                    placeholder="1056 Budapest, Irányi u. 3.">
+                    placeholder="1056 Budapest, Minta u. 3.">
                 <small *ngIf="applicationForm.get('address')?.invalid && applicationForm.get('address')?.dirty"
                     class="text-danger">Nem adtál meg címet!</small>
             </div>
@@ -30,9 +30,9 @@
             <div class="col-md-6">
                 <label for="phoneNumber" class="form-label">Telefonszám</label>
                 <input type="text" class="form-control custom-input" id="phoneNumber" formControlName="phoneNumber"
-                    placeholder="+36 30 223 4267">
+                    placeholder="+36 30 123 4567">
                 <small *ngIf="applicationForm.get('phoneNumber')?.invalid && applicationForm.get('phoneNumber')?.dirty"
-                    class="text-danger">Kérjük, megfelelő formátumú telefonszámot adj meg! pl. +36 30 223 4267 </small>
+                    class="text-danger">Kérjük, megfelelő formátumú telefonszámot adj meg! pl. +36 30 123 4567 </small>
             </div>
 
         </div>
