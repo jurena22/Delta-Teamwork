@@ -4,4 +4,5 @@ export interface TrainingModel {
     teacher: string,
     id?:string
     applicants: number,
+    imageURL: string
 }
