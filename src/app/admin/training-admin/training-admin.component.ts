@@ -45,6 +45,9 @@ export class TrainingAdminComponent implements OnInit {
       ]),
       teacher: new FormControl('', [
         Validators.required
+      ]),
+      imageURL: new FormControl('', [
+        Validators.required
       ])
     })
 
