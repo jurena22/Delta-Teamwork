@@ -80,4 +80,28 @@
             <button type="submit" class="btn btn-danger" [disabled]="applicationForm.invalid">Jelentkezés</button>
         </div>
     </form>
+
+    <!-- <section class="container my-3">
+        <table class="table w-100">
+            <thead>
+                <th>Név</th>
+                <th>Email</th>
+                <th>Lakcím</th>
+                <th>Telefonszám</th>
+                <th>Képzés</th>
+                <th>Visszatérő diák</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let applicant of oldCustomer$|async">
+                    <td class="col-2">{{applicant.name}}</td>
+                    <td class="col-2">{{applicant.email}}</td>
+                    <td class="col-2">{{applicant.address}}</td>
+                    <td class="col-2">{{applicant.phoneNumber}}</td>
+                    <td class="col-2">{{applicant.course}}</td>
+                    <td class="col-2">{{applicant.studentStatus}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </section> -->
 </div>
