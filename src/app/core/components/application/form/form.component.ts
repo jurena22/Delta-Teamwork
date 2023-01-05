@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
+import { first, Subscription } from 'rxjs';
 import { TrainingModel } from 'src/app/model/training.model';
 import { ApplicationService } from 'src/app/services/application.service';
 import { TrainingdataService } from 'src/app/services/trainingdata.service';
@@ -49,12 +49,29 @@ export class FormComponent implements OnInit, OnDestroy {
     })
   }
 
-  saveApplication(): void {
-    // console.log(this.applicationForm.value);
-    // alert('Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.')
-    this.applicationService.create(this.applicationForm.value);
-    this.applicationForm.reset();
-    this.toastr.success("Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.");
+  async saveApplication(): Promise<void> {
+    
+    let existingEmail;
+
+    this.applicationService.getByEmail(this.applicationForm.get('email')?.value)
+    .pipe(
+      first()
+    ).subscribe({
+      next: data => {
+        existingEmail = data;
+        console.log(existingEmail.length);
+
+        if(existingEmail.length === 0){
+          this.applicationService.create(this.applicationForm.value);
+          this.applicationForm.reset();
+          this.toastr.success("Sikeres jelentkezés! Munkatársunk hamarosan felkeres a megadott elérhetőségek egyikén.");
+        } else {
+          this.toastr.error("Email already exists!")
+        }
+      }
+    });
+    
+    
   }
 
   ngOnDestroy(): void {
