@@ -50,6 +50,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   async saveApplication(): Promise<void> {
+
     
     let existingEmail;
 
