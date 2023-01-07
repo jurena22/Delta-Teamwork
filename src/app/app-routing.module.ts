@@ -5,9 +5,6 @@ import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-ad
 import { LoginComponent } from './admin/login/login.component';
 import { TrainingAdminComponent } from './admin/training-admin/training-admin.component';
 import { AboutComponent } from './core/components/about/about.component';
-import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
-import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
-import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
 import { ApplicationComponent } from './core/components/application/application.component';
 import { FormComponent } from './core/components/application/form/form.component';
 import { MainpageComponent } from './core/components/mainpage/mainpage.component';
@@ -26,15 +23,13 @@ const routes: Routes = [
     children: [
       { path: '', component: MainpageComponent },
       { path: 'kepzeseink', component: TrainingsComponent },
-      { path: 'rolunk', component: AboutComponent, children: [
+      { path: 'rolunk', children: [
+        {path: '', component: AboutComponent},
         {path: ':id', component: MentorComponent}
       ] },
       { path: 'jelentkezes', component: ApplicationComponent, children: [
         {path: '', component: FormComponent, canDeactivate: [ApplicDeactiveGuardService]}
-      ]},
-      { path: 'rolunk/szabi', component: SzabiComponent },
-      { path: 'rolunk/zoli', component: ZoliComponent },
-      { path: 'rolunk/laci', component: LaciComponent },
+      ]}
     ],
   },
   { path: 'admin', component: AdminComponent, children: [

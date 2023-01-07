@@ -31,9 +31,6 @@ import { RadioComponent } from './shared/radio/radio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicantsAdminComponent } from './admin/applicants-admin/applicants-admin.component';
 import { LoginComponent } from './admin/login/login.component';
-import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.component';
-import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
-import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
 import { ToastrModule } from 'ngx-toastr';
 import { MentorComponent } from './core/components/about/mentor/mentor.component';
 import { SchoolComponent } from './core/components/about/school/school.component';
@@ -54,7 +51,6 @@ import { TeachersComponent } from './core/components/about/teachers/teachers.com
     FlashTextComponent,
     NotFoundPageComponent,
     AboutComponent,
-    SzabiComponent,
     ApplicationComponent,
     AdminComponent,
     TrainingAdminComponent,
@@ -63,8 +59,6 @@ import { TeachersComponent } from './core/components/about/teachers/teachers.com
     RadioComponent,
     ApplicantsAdminComponent,
     LoginComponent,
-    ZoliComponent,
-    LaciComponent,
     MentorComponent,
     SchoolComponent,
     TeachersComponent,
