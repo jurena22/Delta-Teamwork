@@ -37,7 +37,7 @@ export class TeachersComponent implements OnInit, OnDestroy {
 
 
   goToMentor(id: string | undefined) {
-    console.log(id);
+    
     if (id) {
       this.router.navigate(['rolunk', id])
     }
