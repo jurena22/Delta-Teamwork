@@ -15,7 +15,7 @@ import { NotFoundPageComponent } from './core/components/not-found-page/not-foun
 import { TrainingsComponent } from './core/components/trainings/trainings.component';
 import { CoreComponent } from './core/core.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
-import { ApplicDeactiveGuardService } from './services/applic-deactive-guard.service';
+import { ApplicDeactiveGuardService } from './guards/applic-deactive-guard.service';
 
 const routes: Routes = [
   {
