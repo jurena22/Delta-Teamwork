@@ -16,6 +16,8 @@ import { TrainingsComponent } from './core/components/trainings/trainings.compon
 import { CoreComponent } from './core/core.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { ApplicDeactiveGuardService } from './guards/applic-deactive-guard.service';
+import { MentorComponent } from './core/components/about/mentor/mentor.component';
+import { SchoolComponent } from './core/components/about/school/school.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,10 @@ const routes: Routes = [
     children: [
       { path: '', component: MainpageComponent },
       { path: 'kepzeseink', component: TrainingsComponent },
-      { path: 'rolunk', component: AboutComponent },
+      { path: 'rolunk', component: AboutComponent, children: [
+        // {path: 'school', component: SchoolComponent},
+        {path: ':id', component: MentorComponent}
+      ] },
       { path: 'jelentkezes', component: ApplicationComponent, children: [
         {path: '', component: FormComponent, canDeactivate: [ApplicDeactiveGuardService]}
       ]},

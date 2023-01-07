@@ -35,6 +35,9 @@ import { SzabiComponent } from './core/components/about/mentors/szabi/szabi.comp
 import { ZoliComponent } from './core/components/about/mentors/zoli/zoli.component';
 import { LaciComponent } from './core/components/about/mentors/laci/laci.component';
 import { ToastrModule } from 'ngx-toastr';
+import { MentorComponent } from './core/components/about/mentor/mentor.component';
+import { SchoolComponent } from './core/components/about/school/school.component';
+import { TeachersComponent } from './core/components/about/teachers/teachers.component';
 
 
 
@@ -62,6 +65,9 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     ZoliComponent,
     LaciComponent,
+    MentorComponent,
+    SchoolComponent,
+    TeachersComponent,
 
   ],
   imports: [
