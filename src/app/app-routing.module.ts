@@ -15,6 +15,7 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { ApplicDeactiveGuardService } from './guards/applic-deactive-guard.service';
 import { MentorComponent } from './core/components/about/mentor/mentor.component';
 import { SchoolComponent } from './core/components/about/school/school.component';
+import { TeachersAdminComponent } from './admin/teachers-admin/teachers-admin.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, children: [
     // { path: 'login', component: LoginComponent},
     { path: 'trainingadmin', component: TrainingAdminComponent, canActivate: [AuthGuardGuard]},
-    { path: 'applicantsadmin', component: ApplicantsAdminComponent, canActivate: [AuthGuardGuard]}
+    { path: 'applicantsadmin', component: ApplicantsAdminComponent, canActivate: [AuthGuardGuard]},
+    { path: 'teachersadmin', component: TeachersAdminComponent, canActivate: [AuthGuardGuard]}
   ] },
   { path: '404', component: NotFoundPageComponent },
   // { path: '**', component: NotFoundPageComponent },

@@ -14,6 +14,9 @@
         <div class="navbar-nav">
           <a class="nav-link" routerLink="applicantsadmin">Jelentkezők</a>
         </div>
+        <div class="navbar-nav">
+          <a class="nav-link" routerLink="teachersadmin">Tanárok</a>
+        </div>
         <div *ngIf="(loggedInStatus$ | async)" class="navbar-nav">
           <a (click)="logout()" class="nav-link">Kijelentkezés</a>
         </div>

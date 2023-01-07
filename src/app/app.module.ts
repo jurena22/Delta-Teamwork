@@ -35,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MentorComponent } from './core/components/about/mentor/mentor.component';
 import { SchoolComponent } from './core/components/about/school/school.component';
 import { TeachersComponent } from './core/components/about/teachers/teachers.component';
+import { TeachersAdminComponent } from './admin/teachers-admin/teachers-admin.component';
 
 
 
@@ -62,6 +63,7 @@ import { TeachersComponent } from './core/components/about/teachers/teachers.com
     MentorComponent,
     SchoolComponent,
     TeachersComponent,
+    TeachersAdminComponent,
 
   ],
   imports: [
