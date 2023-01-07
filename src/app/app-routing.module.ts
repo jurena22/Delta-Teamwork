@@ -27,7 +27,6 @@ const routes: Routes = [
       { path: '', component: MainpageComponent },
       { path: 'kepzeseink', component: TrainingsComponent },
       { path: 'rolunk', component: AboutComponent, children: [
-        // {path: 'school', component: SchoolComponent},
         {path: ':id', component: MentorComponent}
       ] },
       { path: 'jelentkezes', component: ApplicationComponent, children: [

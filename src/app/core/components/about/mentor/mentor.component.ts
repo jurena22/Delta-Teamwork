@@ -12,6 +12,7 @@ import { MentorService } from 'src/app/services/mentor.service';
 export class MentorComponent implements OnInit {
 
   mentorArray: MentorModel[] = [];
+  
   mentorData?: MentorModel;
   dataSubscription?: Subscription;
 
@@ -31,17 +32,11 @@ export class MentorComponent implements OnInit {
   constructor(private router: Router, private mentorService: MentorService) { }
 
   ngOnInit(): void {
+    this.mentorArray[0].id = '1';
     this.dataSubscription = this.mentorService.mentorObs$.subscribe({
       next: (data: MentorModel[]) => this.mentorArray = data
     })
   }
-
-  goToMentor(id: string | undefined) {
-    if (id) {
-      this.router.navigate(['rolunk', id])
-    }
-  }
-
 
   goBackToTeachers(){
     this.router.navigate(["rolunk"])
@@ -52,7 +47,6 @@ export class MentorComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    // console.log('laci mentor leíratkozás');
     this.dataSubscription?.unsubscribe();
   }
 
