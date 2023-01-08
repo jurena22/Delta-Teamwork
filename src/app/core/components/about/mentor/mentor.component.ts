@@ -46,4 +46,8 @@ export class MentorComponent implements OnInit {
     this.dataSubscription?.unsubscribe();
   }
 
+  isArray(obj : any ) {
+    return Array.isArray(obj)
+ }
+
 }
