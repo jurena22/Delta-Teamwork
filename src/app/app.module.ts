@@ -36,6 +36,9 @@ import { MentorComponent } from './core/components/about/mentor/mentor.component
 import { SchoolComponent } from './core/components/about/school/school.component';
 import { TeachersComponent } from './core/components/about/teachers/teachers.component';
 import { TeachersAdminComponent } from './admin/teachers-admin/teachers-admin.component';
+import { PicUploadComponent } from './admin/pic-upload/pic-upload.component';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 
@@ -64,6 +67,7 @@ import { TeachersAdminComponent } from './admin/teachers-admin/teachers-admin.co
     SchoolComponent,
     TeachersComponent,
     TeachersAdminComponent,
+    PicUploadComponent,
 
   ],
   imports: [
@@ -80,7 +84,9 @@ import { TeachersAdminComponent } from './admin/teachers-admin/teachers-admin.co
     ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireStorageModule,
+    provideStorage(() => getStorage())
 
   ],
   providers: [],

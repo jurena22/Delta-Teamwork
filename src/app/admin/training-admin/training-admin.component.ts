@@ -21,6 +21,9 @@ export class TrainingAdminComponent implements OnInit {
 
   trainingForm!: FormGroup;
 
+  imgName: string;
+
+
   constructor(
     private trainingDataService: TrainingdataService,
     private applicationService: ApplicationService
@@ -53,27 +56,32 @@ export class TrainingAdminComponent implements OnInit {
 
   }
 
-  
+  setImgName() {
+    this.imgName = this.trainingForm.get('name').value;
+  }
 
   chooseTraining(training: TrainingModel) {
     this.chosenTraining = training;
-    console.log(this.chosenTraining);
   }
 
   deleteTraining() {
     if (this.chosenTraining.id) {
       this.trainingDataService.delete(this.chosenTraining.id);
-
     }
   }
 
   saveTraining(): void {
     if(this.trainingForm.valid){
     this.trainingDataService.create(this.trainingForm.value);
+    this.trainingForm.reset();
   }
   }
 
   getApplicantsNumber(name:string):number{
     return this.applicants?.filter(applicant => applicant.course === name).length || 0;
+  }
+
+  urlSet(url: string) {
+    this.trainingForm.patchValue({imageURL: url})
   }
 }
