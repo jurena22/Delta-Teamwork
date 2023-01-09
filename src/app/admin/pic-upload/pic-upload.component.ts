@@ -11,6 +11,7 @@ export class PicUploadComponent implements OnInit {
   
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
+  @Input() imgFolder: string;
   @Input() imgName: string;
 
   @Output() imgUrlEmitter: EventEmitter<any> = new EventEmitter();
@@ -25,7 +26,7 @@ export class PicUploadComponent implements OnInit {
   
   uploadFile(event: any) {
     const file = event.target.files[0];
-    const filePath = `trainings/${this.imgName}`;
+    const filePath = `${this.imgFolder}/${this.imgName}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
 

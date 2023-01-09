@@ -60,9 +60,9 @@
 
         <div class="col-12">
             <label for="inputName" class="form-label">Név</label>
-            <input type="text" class="form-control" id="inputName" formControlName="name" />
+            <input type="text" class="form-control" id="inputName" formControlName="name"  (keyup)="setImgName()" />
         </div>
-        
+
         <div class="col-12">
             <label for="inputTitle" class="form-label">Titulus</label>
             <input type="text" class="form-control" id="inputTitle" formControlName="title" />
@@ -70,14 +70,15 @@
 
         <div class="col-12">
             <label for="inputDescription" class="form-label">Bemutatkozás</label>
-            <textarea rows="4" class="form-control" style="height: 100px;" id="inputDescription" formControlName="description" ></textarea>
+            <textarea rows="4" class="form-control" style="height: 100px;" id="inputDescription"
+                formControlName="description"></textarea>
         </div>
-        
+
         <div class="col-12">
             <label for="inputPhone" class="form-label">Telefonszám</label>
             <input type="text" class="form-control" id="inputPhone" formControlName="phone" />
         </div>
-        
+
         <div class="col-12">
             <label for="inputEmail" class="form-label">Email-cím</label>
             <input type="text" class="form-control" id="inputEmail" formControlName="email" />
@@ -86,6 +87,9 @@
         <div class="col-12">
             <label for="inputImageURL" class="form-label">Kép URL</label>
             <input type="text" class="form-control" id="inputImageURL" formControlName="imgURL" />
+            <div class="mt-3">
+                <app-pic-upload (imgUrlEmitter)="urlSet($event)" imgFolder="teachers" [imgName]="imgName" ></app-pic-upload>
+            </div>
         </div>
 
         <!-- <div class="col-12">
@@ -96,7 +100,7 @@
         </div> -->
 
         <div class="col-12">
-            <button type="submit" class="btn btn-primary"  [disabled]="teacherForm.invalid">Mentés</button>
+            <button type="submit" class="btn btn-primary" [disabled]="teacherForm.invalid">Mentés</button>
         </div>
     </form>
 </div>

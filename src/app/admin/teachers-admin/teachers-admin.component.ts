@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MentorModel } from 'src/app/model/mentor.model';
-import { TrainingModel } from 'src/app/model/training.model';
 import { MentorService } from 'src/app/services/mentor.service';
-import { TrainingdataService } from 'src/app/services/trainingdata.service';
 
 @Component({
   selector: 'app-teachers-admin',
@@ -15,11 +14,14 @@ export class TeachersAdminComponent implements OnInit {
   mentors?: MentorModel[];
   chosenMentor: MentorModel = {} as MentorModel;
 
+  imgName: string;
+
   teacherForm!: FormGroup;
   // trainings?: TrainingModel[];
 
   constructor(
     private mentorService: MentorService,
+    private storage: AngularFireStorage
     // private trainingDataService: TrainingdataService
   ) { }
 
@@ -44,6 +46,10 @@ export class TeachersAdminComponent implements OnInit {
 
   }
 
+  setImgName() {
+    this.imgName = this.teacherForm.get('name').value;
+  }
+
   chooseMentor(mentor: MentorModel) {
     this.chosenMentor = mentor;
   }
@@ -52,7 +58,12 @@ export class TeachersAdminComponent implements OnInit {
   deleteMentor() {
     if (this.chosenMentor.id) {
       this.mentorService.delete(this.chosenMentor.id);
+      this.deleteFileStorage(this.chosenMentor.name);
     }
+  }
+  private deleteFileStorage(name: string): void {
+    const storageRef = this.storage.ref("teachers/");
+    storageRef.child(name).delete();
   }
 
   saveMentor() {
@@ -71,5 +82,9 @@ export class TeachersAdminComponent implements OnInit {
   editMentor(mentor: MentorModel) {
     this.chooseMentor(mentor);
     this.teacherForm.patchValue(this.chosenMentor);
+  }
+
+  urlSet(url: string) {
+    this.teacherForm.patchValue({imgURL: url})
   }
 }

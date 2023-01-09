@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { map } from 'rxjs';
 import { ApplicantModel } from 'src/app/model/applicant.model';
 import { TrainingModel } from 'src/app/model/training.model';
 import { ApplicationService } from 'src/app/services/application.service';
@@ -26,7 +26,8 @@ export class TrainingAdminComponent implements OnInit {
 
   constructor(
     private trainingDataService: TrainingdataService,
-    private applicationService: ApplicationService
+    private applicationService: ApplicationService,
+    private storage: AngularFireStorage
     ) { }
 
   ngOnInit(): void {
@@ -67,7 +68,13 @@ export class TrainingAdminComponent implements OnInit {
   deleteTraining() {
     if (this.chosenTraining.id) {
       this.trainingDataService.delete(this.chosenTraining.id);
+      this.deleteFileStorage(this.chosenTraining.name)
     }
+  }
+
+  private deleteFileStorage(name: string): void {
+    const storageRef = this.storage.ref("trainings/");
+    storageRef.child(name).delete();
   }
 
   saveTraining(): void {

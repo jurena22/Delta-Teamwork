@@ -86,6 +86,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     AngularFireStorageModule,
+    NgbModule,
     provideStorage(() => getStorage())
 
   ],
