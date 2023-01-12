@@ -16,12 +16,12 @@
                 <div class="col-md-6 p-3 teacher-text-container">
                     <h1 class="my-2">{{mentorData?.name}}</h1>
                     
-                    <div *ngIf="isArray(mentorData?.description) else noData">
-                        <p *ngFor="let paragraph of mentorData?.description">{{paragraph}}</p>
+                    <div>
+                        <p style="white-space: pre-line;">{{mentorData?.description}}</p>
                     </div>
-                    <ng-template #noData>
+                    <!-- <ng-template #noData>
                         <p>Tartalom feltöltés alatt...</p>
-                    </ng-template>
+                    </ng-template> -->
 
                     <div class="social-icons">
                         <div class="phone-icon d-flex flex-row">
