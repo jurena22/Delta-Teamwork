@@ -9,6 +9,8 @@
               <h6 class="card-subtitle my-2 text-muted">Oktató: {{training.teacher}}</h6>
               <p class="card-text mt-2 mb-0">Technológiák: </p>
               <p class="card-text mt-0">{{training.description}}</p>
+              <p *ngIf="getApplicantsNumber(training.name) < training.max" class="card-text mt-1 text-muted">Jelentkezők száma:<br>{{getApplicantsNumber(training.name)}}/{{training.max}}</p>
+              <p *ngIf="getApplicantsNumber(training.name) >= training.max" class="card-text mt-1 text-danger">A képzés megtelt, kérjük kövesse figyelemmel honlapunkat, vagy érdeklődjön elérhetőségeink egyikén!</p>
               <div class="text-center mt-3">
                 <button class="btn btn-outline-danger" (click)="goToApplication()">Jelentkezés</button>
               </div>

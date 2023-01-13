@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { first, Subscription } from 'rxjs';
+import { ApplicantModel } from 'src/app/model/applicant.model';
 import { TrainingModel } from 'src/app/model/training.model';
 import { ApplicationService } from 'src/app/services/application.service';
 import { TrainingdataService } from 'src/app/services/trainingdata.service';
@@ -14,6 +15,8 @@ import { TrainingdataService } from 'src/app/services/trainingdata.service';
 export class FormComponent implements OnInit, OnDestroy {
 
   applicationForm!: FormGroup;
+
+  applicants?: ApplicantModel[];
 
   trainings?: TrainingModel[];
   
@@ -32,8 +35,21 @@ export class FormComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
+
+    this.applicationService.getAll().subscribe({
+      next: (data: ApplicantModel[])=>{this.applicants = data}
+    });
+
     this.dataSubscription = this.trainingDataService.getAll().subscribe({
-      next: (data: TrainingModel[])=>{this.trainings = data}
+      next: (data: TrainingModel[])=>{
+        this.trainings = data;
+        this.trainings = this.trainings.filter(x => this.getApplicantsNumber(x.name) < x.max)
+      }
+      
+    });
+
+    this.applicationService.getAll().subscribe({
+      next: (data: ApplicantModel[])=>{this.applicants = data}
     });
 
     this.applicationForm = new FormGroup({
@@ -73,6 +89,10 @@ export class FormComponent implements OnInit, OnDestroy {
     });
     
     
+  }
+  
+  getApplicantsNumber(name:string):number{
+    return this.applicants?.filter(applicant => applicant.course === name).length || 0;
   }
 
   ngOnDestroy(): void {
