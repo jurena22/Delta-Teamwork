@@ -44,7 +44,7 @@ export class TrainingsComponent implements OnInit, OnDestroy {
   }
 
   getApplicantsNumber(name:string):number{
-    return this.applicants?.filter(applicant => applicant.course === name).length || 0;
+    return this.applicants?.filter(applicant => applicant.course === name).length;
   }
   
 
