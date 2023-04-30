@@ -1,3 +1,5 @@
+This is a study teamwork projekt for SV3 Junior Frontend Developer formation.
+
 # Webpage
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
